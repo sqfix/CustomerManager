@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class AppController {
 
@@ -76,9 +74,9 @@ public class AppController {
             model.addAttribute("customers", customer);
             return "listOfCustomers";
         } catch (Exception e) {
-            List<Customer> customerList = service.getCustomerByName(condition);
-            model.addAttribute("customers", customerList);
-            if (customerList == null)
+            Customer customer = service.getCustomerByName(condition);
+            model.addAttribute("customers", customer);
+            if (customer == null)
                 throw new CustomerNotFoundException();
             return "listOfCustomers";
         }

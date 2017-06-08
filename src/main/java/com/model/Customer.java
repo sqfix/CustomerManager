@@ -1,5 +1,6 @@
 package com.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,11 +12,22 @@ public class Customer {
     @GeneratedValue
     private Integer id;
 
+    @Column(unique = true)
     private String name;
 
     private Integer phone;
 
     private String address;
+
+    public Customer(String name, int phone, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public Customer() {
+
+    }
 
 
     public Integer getId() {

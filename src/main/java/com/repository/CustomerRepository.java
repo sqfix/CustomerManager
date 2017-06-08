@@ -4,7 +4,6 @@ import com.model.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -14,7 +13,7 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer> {
 
     Customer findById(int id);
 
-    List<Customer> findByName(String name);
+    Customer findByName(String name);
 
     void removeById(int id);
 }

@@ -13,7 +13,7 @@ public interface CustomerService {
 
     Customer getCustomerById(int id) throws NullPointerException;
 
-    List<Customer> getCustomerByName(String name);
+    Customer getCustomerByName(String name);
 
     void removeById(int id);
     //TODO: update method for customer's !!!!
