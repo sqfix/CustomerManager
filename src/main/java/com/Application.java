@@ -17,8 +17,8 @@ public class Application {
 
 	@Autowired
 	public void authenticationManager(AuthenticationManagerBuilder builder, CustomerService service) throws Exception {
-		service.saveCustomer(new Customer("name", 111, "weqe"));
-		service.saveCustomer(new Customer("Putin", 228, "Kremlin"));
-		builder.userDetailsService(customer -> new CustomUserDetails(service.getCustomerByName(customer)));
+        service.saveCustomer(new Customer("Aur", 111, "Ads"));
+        service.saveCustomer(new Customer("Body", 123, "City"));
+        builder.userDetailsService(customer -> new CustomUserDetails(service.getCustomerByName(customer)));
 	}
 }

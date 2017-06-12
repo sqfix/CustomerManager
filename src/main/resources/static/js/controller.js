@@ -3,7 +3,6 @@
 var CustomerController = function ($scope, $http) {
     $scope.customer = {};
 
-
     $scope.getCustomerList = function () {
         $http.get('client').success(function (customerList) {
             $scope.customers = customerList;
