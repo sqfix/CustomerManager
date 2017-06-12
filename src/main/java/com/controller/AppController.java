@@ -5,6 +5,7 @@ import com.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -35,7 +36,9 @@ public class AppController {
     }
 
     @RequestMapping(value = "/searchBy/{condition}", method = RequestMethod.GET)
-    public Customer searchCustomers(@PathVariable String condition) {
-        return service.searchCustomers(condition);
+    public List<Customer> searchCustomers(@PathVariable String condition) {
+        return new ArrayList<Customer>() {{
+            add(service.searchCustomers(condition));
+        }};
     }
 }

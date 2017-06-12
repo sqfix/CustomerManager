@@ -29,17 +29,21 @@
         <div class="controls">
             <br>
             <button type="button" class="btn btn-primary" ng-click="saveCustomer(customer)">Save Customer</button>
-            <button class="btn btn-mini btn-danger" ng-click="resetForm()">Reset</button>
+            <button class="btn btn-mini btn-danger" ng-click="resetForm()">Reset Form</button>
         </div>
     </div>
 </form>
 
 <hr>
 
-<div ng-show="customers.length > 0">
+<div>
     <label class="control-label">Search Customer by Id or Name:</label>
     <input type="text" placeholder="Search customer" ng-model="condition"/>
-    <button class="btn btn-mini btn-danger" ng-click="getCustomerList()">Get One</button>
+    <button class="btn btn-mini btn-danger" ng-click="getOneCustomer(condition)">Get One</button>
+    <button class="btn btn-mini btn-danger" ng-click="getCustomerList()">Get All</button>
+</div>
+<div class="alert alert-error" ng-show="error">
+    <p style="color: #c12e2a"><b>{{errorMessage}}</b></p>
 </div>
 <h3>Customer List</h3>
 <div class="alert alert-info" ng-show="customers.length == 0">

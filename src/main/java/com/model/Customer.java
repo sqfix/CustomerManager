@@ -12,11 +12,13 @@ public class Customer {
     @GeneratedValue
     private Integer id;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private Integer phone;
 
+    @Column(nullable = false)
     private String address;
 
     public Customer(String name, int phone, String address) {
