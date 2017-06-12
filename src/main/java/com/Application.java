@@ -11,14 +11,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	@Autowired
-	public void authenticationManager(AuthenticationManagerBuilder builder, CustomerService service) throws Exception {
-        service.saveCustomer(new Customer("Aur", 111, "Ads"));
-        service.saveCustomer(new Customer("Body", 123, "City"));
+    @Autowired
+    public void authenticationManager(AuthenticationManagerBuilder builder, CustomerService service) throws Exception {
+        service.saveCustomer(new Customer("Andrew", "+1-202-555-0189", "San Jose"));
+        service.saveCustomer(new Customer("Kayla", "+1-202-555-0179", "Dallas"));
         builder.userDetailsService(customer -> new CustomUserDetails(service.getCustomerByName(customer)));
-	}
+    }
 }

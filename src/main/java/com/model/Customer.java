@@ -16,12 +16,12 @@ public class Customer {
     private String name;
 
     @Column(nullable = false)
-    private Integer phone;
+    private String phone;
 
     @Column(nullable = false)
     private String address;
 
-    public Customer(String name, int phone, String address) {
+    public Customer(String name, String phone, String address) {
         this.name = name;
         this.phone = phone;
         this.address = address;
@@ -48,11 +48,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

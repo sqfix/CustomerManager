@@ -28,6 +28,9 @@ var CustomerController = function ($scope, $http) {
             $scope.error = false;
             $scope.getCustomerList();
             $scope.customer = {};
+        }).error(function (msg) {
+            $scope.error = true;
+            $scope.errorMessage = 'Error creating customer!';
         });
     };
 
