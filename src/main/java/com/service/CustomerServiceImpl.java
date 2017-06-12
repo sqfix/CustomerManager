@@ -1,6 +1,7 @@
 package com.service;
 
 
+import com.controller.exceptions.CustomerNotFoundException;
 import com.model.Customer;
 import com.repository.CustomerRepository;
 import org.slf4j.Logger;
@@ -47,5 +48,27 @@ public class CustomerServiceImpl implements CustomerService {
     public void removeById(int id) {
         LOGGER.info("removeById " + id);
         repository.removeById(id);
+    }
+
+    @Override
+    public void editCustomer() {
+        LOGGER.info("update Customer");
+    }
+
+    @Override
+    public Customer searchCustomers(String condition) {
+        LOGGER.info("searchCustomers " + condition);
+        try {
+            int id = Integer.parseInt(condition);
+            Customer customer = getCustomerById(id);
+            if (customer == null)
+                throw new CustomerNotFoundException();
+            return customer;
+        } catch (Exception e) {
+            Customer customer = getCustomerByName(condition);
+            if (customer == null)
+                throw new CustomerNotFoundException();
+            return customer;
+        }
     }
 }

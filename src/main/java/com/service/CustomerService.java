@@ -16,5 +16,8 @@ public interface CustomerService {
     Customer getCustomerByName(String name);
 
     void removeById(int id);
-    //TODO: update method for customer's !!!!
+
+    void editCustomer();
+
+    Customer searchCustomers(String condition);
 }
